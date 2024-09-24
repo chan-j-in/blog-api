@@ -1,4 +1,5 @@
 *.yml
+DatabaseConfig.java
 HELP.md
 .gradle
 build/
