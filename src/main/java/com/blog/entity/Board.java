@@ -1,4 +1,4 @@
-package com.blog.Entity;
+package com.blog.entity;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;

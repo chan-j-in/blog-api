@@ -1,4 +1,4 @@
-package com.blog.Entity;
+package com.blog.entity;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;
@@ -11,21 +11,23 @@ import java.sql.Timestamp;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Table(name = "user")
-public class User {
+@Table(name = "reply")
+public class Reply {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, length = 100, unique = true)
-    private String username;
+    @Column(nullable = false, length = 200)
+    private String content;
 
-    @Column(nullable = false, length = 100)
-    private String password;
+    @ManyToOne
+    @JoinColumn(name = "boardId")
+    private Board board;
 
-    @Column(nullable = false, length = 50)
-    private String email;
+    @ManyToOne
+    @JoinColumn(name = "userId")
+    private User user;
 
     @CreationTimestamp
     private Timestamp createDate;
